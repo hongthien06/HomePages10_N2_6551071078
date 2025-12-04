@@ -3,340 +3,1590 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/css/styles.css" />
+    <title>Automize 10 – Automize</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Oswald:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
-    <title>Automize - Auto Parts Store</title>
+
+    <!-- Swiper -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
+    <!-- AOS Animation -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+    />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="src/css/style.css" />
   </head>
   <body>
-    <!-- Header -->
-    <header>
-      <div class="top-header">
-        <div class="logo">AUTOMIZE</div>
-        <nav>
-          <ul class="main-nav">
-            <li><a href="#" class="active">Home</a></li>
-            <li><a href="#">Shop</a></li>
-            <li><a href="#">Product</a></li>
-            <li><a href="#">Pages</a></li>
-            <li><a href="#">Blog</a></li>
-          </ul>
-        </nav>
-        <div class="header-actions">
-          <a href="#"><i class="fas fa-truck"></i> Track Your Order</a>
-          <a href="#"><i class="fas fa-map-marker-alt"></i> Store Locator</a>
-          <a href="#" class="phone"
-            ><i class="fas fa-phone"></i> Call Us: + (123)-456-7890</a
-          >
+    <!-- ========== NEWSLETTER POPUP ========== -->
+    <div class="newsletter-popup" id="newsletterPopup">
+      <div class="popup-overlay"></div>
+      <div class="popup-content">
+        <button class="popup-close" id="popupClose">
+          <i class="fas fa-times"></i>
+        </button>
+        <div class="popup-image">
+          <img src="images/newsletter-popup.jpg" alt="Newsletter" />
+        </div>
+        <div class="popup-form">
+          <span class="popup-subtitle">Sign up Newsletter</span>
+          <h3>GET 10% DISCOUNT</h3>
+          <p>
+            Sign up for newsletter to receive special offers and exclusive news
+            about products
+          </p>
+          <form>
+            <input type="email" placeholder="ENTER YOUR EMAIL" />
+            <button type="submit">SUBSCRIBE</button>
+          </form>
+          <label class="dont-show">
+            <input type="checkbox" id="dontShowAgain" />
+            Don't show this popup again
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== HEADER ========== -->
+    <header class="header" id="header">
+      <div class="header-main">
+        <div class="container">
+          <div class="header-content">
+            <!-- Logo -->
+            <div class="logo">
+              <a href="#">
+                <img
+                  src="images/dark.png"
+                  alt="Automize"
+                  class="logo-default"
+                />
+                <img
+                  src="images/dark-sticky.png"
+                  alt="Automize"
+                  class="logo-sticky"
+                />
+              </a>
+            </div>
+
+            <!-- Main Navigation -->
+            <nav class="main-nav">
+              <ul>
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#">Shop</a></li>
+                <li><a href="#">Pages</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Contact</a></li>
+              </ul>
+            </nav>
+
+            <!-- Header Right -->
+            <div class="header-right">
+              <a href="#" class="header-icon search-toggle"
+                ><i class="fas fa-search"></i
+              ></a>
+              <a href="#" class="header-icon account-icon">
+                <i class="fas fa-user"></i>
+              </a>
+              <a href="#" class="header-icon wishlist-icon">
+                <i class="fas fa-heart"></i>
+                <span class="count">0</span>
+              </a>
+              <a href="#" class="header-icon cart-icon">
+                <i class="fas fa-shopping-bag"></i>
+                <span class="count">0</span>
+              </a>
+            </div>
+
+            <!-- Mobile Toggle -->
+            <button class="mobile-toggle" id="mobileToggle">
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+          </div>
         </div>
       </div>
 
-      <div class="search-bar">
-        <button class="category-btn">☰ BROWSE ALL CATEGORIES</button>
-        <div class="search-container">
-          <select>
-            <option>ALL CATEGORIES</option>
-          </select>
-          <input type="text" placeholder="ENTER YOUR KEYWORD" />
-          <button>🔍</button>
-        </div>
-        <div class="user-actions">
-          <button class="user-btn">
-            <i class="fas fa-user"></i>
-            <span style="font-size: 12px">Account<br />Hello, Login</span>
-          </button>
-          <button class="user-btn">
-            <i class="fas fa-heart"></i>
-            <span class="badge">0</span>
-          </button>
-          <button class="user-btn">
-            <i class="fas fa-shopping-cart"></i>
-            <span class="badge">0</span>
-          </button>
+      <!-- Secondary Header with Categories -->
+      <div class="header-secondary">
+        <div class="container">
+          <div class="secondary-content">
+            <!-- Categories Dropdown -->
+            <div class="categories-dropdown">
+              <button class="categories-btn">
+                <i class="fas fa-bars"></i>
+                <span>Browse All Categories</span>
+                <i class="fas fa-chevron-down arrow"></i>
+              </button>
+              <div class="categories-menu">
+                <ul>
+                  <li>
+                    <a href="#">
+                      <img src="images/headlight-1.svg" alt="" />
+                      <span>Headlights & Lighting</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <img src="images/car-speakers.svg" alt="" />
+                      <span>Car Audio Systems</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <img src="images/tire.svg" alt="" />
+                      <span>Tires & Wheels</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <img src="images/suspension-1.svg" alt="" />
+                      <span>Suspension</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <img src="images/tool.svg" alt="" />
+                      <span>Tools & Equipment</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <img src="images/oil-bottle.svg" alt="" />
+                      <span>Oil Car</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <img src="images/brake-1.svg" alt="" />
+                      <span>Brakes</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <img src="images/auto-safety.svg" alt="" />
+                      <span>Auto Safety & Security</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <img src="images/rims-1.svg" alt="" />
+                      <span>Automotive Rims</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <img src="images/display.svg" alt="" />
+                      <span>Automotive Display</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <img src="images/car-battery.svg" alt="" />
+                      <span>Battery</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Search Bar -->
+            <div class="search-bar">
+              <select class="category-select">
+                <option value="">All Categories</option>
+                <option value="accessories">Accessories</option>
+                <option value="automotive-rims">Automotive Rims</option>
+                <option value="brakes">Brakes</option>
+                <option value="detailing">Detailing</option>
+                <option value="headlight">Headlight</option>
+                <option value="tires">Tires & Wheels</option>
+              </select>
+              <input type="text" placeholder="Enter Your Keyword" />
+              <button type="submit">
+                <i class="fas fa-search"></i> search
+              </button>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="header-contact">
+              <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <a href="#">Track Your Order</a>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-store"></i>
+                <a href="#">Store Locator</a>
+              </div>
+              <div class="contact-item phone">
+                <i class="fas fa-phone-alt"></i>
+                <a href="tel:+1234567890">Call Us: + (123)-456-7890</a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-      <div class="hero-content">
-        <div class="hero-label">BEST SELLERS</div>
-        <h1 class="hero-title">PASSENGER CAR<br />WHEELS 18 INCH</h1>
-        <button class="hero-btn">SHOP NOW</button>
+    <!-- ========== MOBILE MENU ========== -->
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="mobile-menu-header">
+        <img src="images/dark.png" alt="Automize" />
+        <button class="close-menu" id="closeMenu">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="mobile-search">
+        <input type="text" placeholder="Search..." />
+        <button><i class="fas fa-search"></i></button>
+      </div>
+      <nav class="mobile-nav">
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Shop</a></li>
+          <li><a href="#">Pages</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- ========== HERO SLIDER ========== -->
+    <section class="hero-section">
+      <div class="swiper hero-slider">
+        <div class="swiper-wrapper">
+          <!-- Slide 1 -->
+          <div class="swiper-slide">
+            <div class="hero-slide slide-1">
+              <div class="container">
+                <div class="hero-content">
+                  <div
+                    class="hero-text"
+                    data-aos="fade-right"
+                    data-aos-duration="800"
+                  >
+                    <span class="subtitle">Best sellers</span>
+                    <h2 class="title">passenger car</h2>
+                    <h1 class="main-title">wheels 18 inch</h1>
+                    <a href="#" class="btn-shop"
+                      >Shop Now <i class="fas fa-arrow-right"></i
+                    ></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Slide 2 -->
+          <div class="swiper-slide">
+            <div class="hero-slide slide-2">
+              <div class="container">
+                <div class="hero-content">
+                  <div
+                    class="hero-text"
+                    data-aos="fade-right"
+                    data-aos-duration="800"
+                  >
+                    <span class="subtitle">Best sellers</span>
+                    <h2 class="title">Suspension</h2>
+                    <h1 class="main-title">system parts</h1>
+                    <a href="#" class="btn-shop"
+                      >Shop Now <i class="fas fa-arrow-right"></i
+                    ></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Slide 3 -->
+          <div class="swiper-slide">
+            <div class="hero-slide slide-3">
+              <div class="container">
+                <div class="hero-content">
+                  <div
+                    class="hero-text"
+                    data-aos="fade-right"
+                    data-aos-duration="800"
+                  >
+                    <span class="subtitle">New Arrivals</span>
+                    <h2 class="title">michelin tires</h2>
+                    <h1 class="main-title">Sport edition</h1>
+                    <a href="#" class="btn-shop"
+                      >Shop Now <i class="fas fa-arrow-right"></i
+                    ></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-pagination"></div>
       </div>
     </section>
 
-    <!-- Featured Collections -->
-    <section class="featured">
-      <div class="section-header">
-        <h2 class="section-title">FEATURED COLLECTIONS</h2>
-        <div class="nav-arrows">
-          <button>←</button>
-          <button>☷</button>
-          <button>→</button>
-        </div>
-      </div>
-
-      <div class="collections-grid">
-        <div class="collection-card">
-          <img
-            src="./images/brake.jpg"
-            alt="Brakes System"
-            class="collection-image"
-          />
-          <div class="collection-info">
-            <h3>BRAKES SYSTEM</h3>
-            <ul>
-              <li>Frictional brake</li>
-              <li>Air brake</li>
-              <li>Hydraulic brake</li>
-              <li>Electromagnetic brake</li>
-              <li>Servo brake</li>
-            </ul>
-            <a href="#" class="collection-link">Shop All Collection →</a>
+    <!-- ========== FEATURED COLLECTIONS ========== -->
+    <section class="featured-collections">
+      <div class="container">
+        <div class="section-header">
+          <h4 class="section-subtitle">Featured Collections</h4>
+          <div class="collection-nav">
+            <button class="collection-prev">
+              <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="collection-next">
+              <i class="fas fa-chevron-right"></i>
+            </button>
           </div>
         </div>
-
-        <div class="collection-card">
-          <img
-            src="./images/tire.jpg"
-            alt="Tires & Wheels"
-            class="collection-image"
-          />
-          <div class="collection-info">
-            <h3>TIRES & WHEELS</h3>
-            <ul>
-              <li>Michelin</li>
-              <li>Goodyear Tires</li>
-              <li>Continental</li>
-              <li>Good Year</li>
-              <li>Yokohama</li>
-            </ul>
-            <a href="#" class="collection-link">Shop All Collection →</a>
-          </div>
-        </div>
-
-        <div class="collection-card">
-          <img
-            src="./images/headlight.jpg"
-            alt="Suspension"
-            class="collection-image"
-          />
-          <div class="collection-info">
-            <h3>SUSPENSION</h3>
-            <ul>
-              <li>Bilstein</li>
-              <li>Skyjacker</li>
-              <li>HSD Coilovers</li>
-              <li>Eibach</li>
-              <li>KYB</li>
-            </ul>
-            <a href="#" class="collection-link">Shop All Collection →</a>
+        <div class="swiper collections-slider">
+          <div class="swiper-wrapper">
+            <!-- Collection 1 - Brakes -->
+            <div class="swiper-slide">
+              <div class="collection-card">
+                <div class="collection-image">
+                  <img src="images/brake.jpg" alt="Brakes System" />
+                </div>
+                <div class="collection-info">
+                  <h4>Brakes System</h4>
+                  <ul>
+                    <li><a href="#">Frictional brake</a></li>
+                    <li><a href="#">Air brake</a></li>
+                    <li><a href="#">Hydraulic brake</a></li>
+                    <li><a href="#">Electromagnetic brake</a></li>
+                    <li><a href="#">Servo brake</a></li>
+                  </ul>
+                  <a href="#" class="shop-link">Shop All Collection</a>
+                </div>
+              </div>
+            </div>
+            <!-- Collection 2 - Tires -->
+            <div class="swiper-slide">
+              <div class="collection-card">
+                <div class="collection-image">
+                  <img src="images/tire.jpg" alt="Tires & Wheels" />
+                </div>
+                <div class="collection-info">
+                  <h4>TIRES & WHEELS</h4>
+                  <ul>
+                    <li><a href="#">Michelin</a></li>
+                    <li><a href="#">Goodyear Tires</a></li>
+                    <li><a href="#">Continental</a></li>
+                    <li><a href="#">Good Year</a></li>
+                    <li><a href="#">Yokohama</a></li>
+                  </ul>
+                  <a href="#" class="shop-link"
+                    >Shop All Collection <i class="fas fa-arrow-right"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+            <!-- Collection 3 - Suspension -->
+            <div class="swiper-slide">
+              <div class="collection-card">
+                <div class="collection-image">
+                  <img src="images/headlight.jpg" alt="Suspension" />
+                </div>
+                <div class="collection-info">
+                  <h4>Suspension</h4>
+                  <ul>
+                    <li><a href="#">Bilstein</a></li>
+                    <li><a href="#">Skyjacker</a></li>
+                    <li><a href="#">HSD Coilovers</a></li>
+                    <li><a href="#">Eibach</a></li>
+                    <li><a href="#">KYB</a></li>
+                  </ul>
+                  <a href="#" class="shop-link"
+                    >Shop All Collection <i class="fas fa-arrow-right"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+            <!-- Collection 4 - Audio -->
+            <div class="swiper-slide">
+              <div class="collection-card">
+                <div class="collection-image">
+                  <img src="images/rim.jpg" alt="Audio System" />
+                </div>
+                <div class="collection-info">
+                  <h4>Audio System</h4>
+                  <ul>
+                    <li><a href="#">Pioneer</a></li>
+                    <li><a href="#">Bose Corporation</a></li>
+                    <li><a href="#">Focal</a></li>
+                    <li><a href="#">Boston Acoustics</a></li>
+                    <li><a href="#">Sony</a></li>
+                  </ul>
+                  <a href="#" class="shop-link"
+                    >Shop All Collection <i class="fas fa-arrow-right"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+            <!-- Collection 5 - Headlight -->
+            <div class="swiper-slide">
+              <div class="collection-card">
+                <div class="collection-image">
+                  <img src="images/audio.jpg" alt="Headlight" />
+                </div>
+                <div class="collection-info">
+                  <h4>Headlight</h4>
+                  <ul>
+                    <li><a href="#">Multibeam Led</a></li>
+                    <li><a href="#">Projector Headlights</a></li>
+                    <li><a href="#">Chevrolet</a></li>
+                    <li><a href="#">Peugeot</a></li>
+                    <li><a href="#">Toyota</a></li>
+                  </ul>
+                  <a href="#" class="shop-link"
+                    >Shop All Collection <i class="fas fa-arrow-right"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+            <!-- Collection 6 - Rims -->
+            <div class="swiper-slide">
+              <div class="collection-card">
+                <div class="collection-image">
+                  <img src="images/suspension.jpg" alt="Automotive Rims" />
+                </div>
+                <div class="collection-info">
+                  <h4>Automotive Rims</h4>
+                  <ul>
+                    <li><a href="#">Fondmetal</a></li>
+                    <li><a href="#">American Racing</a></li>
+                    <li><a href="#">Lexani</a></li>
+                    <li><a href="#">Vossen</a></li>
+                    <li><a href="#">Moto Metal</a></li>
+                  </ul>
+                  <a href="#" class="shop-link"
+                    >Shop All Collection <i class="fas fa-arrow-right"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- New Arrivals -->
+    <!-- ========== NEW ARRIVALS ========== -->
     <section class="new-arrivals">
-      <h2 class="section-title" style="text-align: center; margin-bottom: 40px">
-        NEW ARRIVALS
-      </h2>
-
-      <div class="section-tabs">
-        <button class="tab-btn active">Tires & Wheels</button>
-        <button class="tab-btn">Headlight</button>
-        <button class="tab-btn">Automotive Rims</button>
+      <div class="container">
+        <div class="section-header center">
+          <h2>NEW ARRIVALS</h2>
+          <div class="product-tabs">
+            <button class="tab-btn active" data-tab="tires">
+              Tires & Wheels
+            </button>
+            <button class="tab-btn" data-tab="headlight">Headlight</button>
+            <button class="tab-btn" data-tab="rims">Automotive Rims</button>
+          </div>
+        </div>
+        <div class="products-grid">
+          <!-- Product 1 -->
+          <div class="product-card" data-aos="fade-up">
+            <div class="product-image">
+              <div class="countdown-timer" data-end="2025-12-31">
+                <div class="time-block">
+                  <span class="days">433</span><small>Days</small>
+                </div>
+                <div class="time-block">
+                  <span class="hours">14</span><small>Hours</small>
+                </div>
+                <div class="time-block">
+                  <span class="minutes">11</span><small>Mins</small>
+                </div>
+                <div class="time-block">
+                  <span class="seconds">59</span><small>Secs</small>
+                </div>
+              </div>
+              <span class="badge sale">-25%</span>
+              <img
+                src="images/1-2-700x700.jpg"
+                alt="Product"
+                class="main-img"
+              />
+              <img
+                src="images/2-2-600x600.jpg"
+                alt="Product"
+                class="hover-img"
+              />
+              <div class="product-actions">
+                <button class="action-btn wishlist">
+                  <i class="far fa-heart"></i>
+                </button>
+                <button class="action-btn compare">
+                  <i class="fas fa-exchange-alt"></i>
+                </button>
+                <button class="action-btn quickview">
+                  <i class="far fa-eye"></i>
+                </button>
+              </div>
+            </div>
+            <div class="product-info">
+              <span class="category">Car Audio Systems</span>
+              <h3>
+                <a href="#"
+                  >Dorman Steel Wheel Compatible with Select Honda Models</a
+                >
+              </h3>
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+                <span>(4)</span>
+              </div>
+              <div class="price">
+                <span class="current">$90.00</span>
+                <span class="original">$120.00</span>
+              </div>
+            </div>
+          </div>
+          <!-- Product 2 -->
+          <div class="product-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="product-image">
+              <img
+                src="images/1-20-700x700.jpg"
+                alt="Product"
+                class="main-img"
+              />
+              <img
+                src="images/2-4-600x600.jpg"
+                alt="Product"
+                class="hover-img"
+              />
+              <div class="product-actions">
+                <button class="action-btn wishlist">
+                  <i class="far fa-heart"></i>
+                </button>
+                <button class="action-btn compare">
+                  <i class="fas fa-exchange-alt"></i>
+                </button>
+                <button class="action-btn quickview">
+                  <i class="far fa-eye"></i>
+                </button>
+              </div>
+            </div>
+            <div class="product-info">
+              <span class="category">Automotive Rims</span>
+              <h3>
+                <a href="#"
+                  >Maecenas gravida neque ac justo volutpat sollicitudin</a
+                >
+              </h3>
+              <div class="rating">
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <span>(0)</span>
+              </div>
+              <div class="price">
+                <span class="current">$180.00 – $210.00</span>
+              </div>
+            </div>
+          </div>
+          <!-- Product 3 -->
+          <div class="product-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="product-image">
+              <img
+                src="images/1-32-700x700.jpg"
+                alt="Product"
+                class="main-img"
+              />
+              <img
+                src="images/1-32-600x600.jpg"
+                alt="Product"
+                class="hover-img"
+              />
+              <div class="product-actions">
+                <button class="action-btn wishlist">
+                  <i class="far fa-heart"></i>
+                </button>
+                <button class="action-btn compare">
+                  <i class="fas fa-exchange-alt"></i>
+                </button>
+                <button class="action-btn quickview">
+                  <i class="far fa-eye"></i>
+                </button>
+              </div>
+            </div>
+            <div class="product-info">
+              <span class="category">Car Audio Systems</span>
+              <h3>
+                <a href="#"
+                  >Quisque in metus non nunc dapibus lobortis quis ligula</a
+                >
+              </h3>
+              <div class="rating">
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <span>(0)</span>
+              </div>
+              <div class="price">
+                <span class="current">$19.00</span>
+              </div>
+            </div>
+          </div>
+          <!-- Product 4 -->
+          <div class="product-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="product-image">
+              <span class="badge sale">-14%</span>
+              <img
+                src="images/1-31-700x700.jpg"
+                alt="Product"
+                class="main-img"
+              />
+              <img
+                src="images/2-30-600x600.jpg"
+                alt="Product"
+                class="hover-img"
+              />
+              <div class="product-actions">
+                <button class="action-btn wishlist">
+                  <i class="far fa-heart"></i>
+                </button>
+                <button class="action-btn compare">
+                  <i class="fas fa-exchange-alt"></i>
+                </button>
+                <button class="action-btn quickview">
+                  <i class="far fa-eye"></i>
+                </button>
+              </div>
+            </div>
+            <div class="product-info">
+              <span class="category">Automotive Rims</span>
+              <h3>
+                <a href="#"
+                  >Suspendisse vitae orci iaculis lobortis purus molestie</a
+                >
+              </h3>
+              <div class="rating">
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <span>(0)</span>
+              </div>
+              <div class="price">
+                <span class="current">$25.00</span>
+                <span class="original">$29.00</span>
+              </div>
+            </div>
+          </div>
+          <!-- Product 5 -->
+          <div class="product-card" data-aos="fade-up">
+            <div class="product-image">
+              <img
+                src="images/1-35-700x700.jpg"
+                alt="Product"
+                class="main-img"
+              />
+              <img
+                src="images/2-34-600x600.jpg"
+                alt="Product"
+                class="hover-img"
+              />
+              <div class="product-actions">
+                <button class="action-btn wishlist">
+                  <i class="far fa-heart"></i>
+                </button>
+                <button class="action-btn compare">
+                  <i class="fas fa-exchange-alt"></i>
+                </button>
+                <button class="action-btn quickview">
+                  <i class="far fa-eye"></i>
+                </button>
+              </div>
+            </div>
+            <div class="product-info">
+              <span class="category">Car Audio Systems</span>
+              <h3>
+                <a href="#"
+                  >Phasellus commodo elit rutrum leo dignissim sagittis</a
+                >
+              </h3>
+              <div class="rating">
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <span>(0)</span>
+              </div>
+              <div class="price">
+                <span class="current">$133.00</span>
+              </div>
+            </div>
+          </div>
+          <!-- Product 6 -->
+          <div class="product-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="product-image">
+              <span class="badge sale">-10%</span>
+              <img
+                src="images/1-33-700x700.jpg"
+                alt="Product"
+                class="main-img"
+              />
+              <img
+                src="images/2-32-600x600.jpg"
+                alt="Product"
+                class="hover-img"
+              />
+              <div class="product-actions">
+                <button class="action-btn wishlist">
+                  <i class="far fa-heart"></i>
+                </button>
+                <button class="action-btn compare">
+                  <i class="fas fa-exchange-alt"></i>
+                </button>
+                <button class="action-btn quickview">
+                  <i class="far fa-eye"></i>
+                </button>
+              </div>
+            </div>
+            <div class="product-info">
+              <span class="category">Automotive Rims</span>
+              <h3>
+                <a href="#"
+                  >Aliquam sit amet dui nec leo dignissim ullamcorper orci</a
+                >
+              </h3>
+              <div class="rating">
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <span>(0)</span>
+              </div>
+              <div class="price">
+                <span class="current">$18.00</span>
+                <span class="original">$20.00</span>
+              </div>
+            </div>
+          </div>
+          <!-- Product 7 -->
+          <div class="product-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="product-image">
+              <img
+                src="images/1-27-700x700.jpg"
+                alt="Product"
+                class="main-img"
+              />
+              <img
+                src="images/2-26-600x600.jpg"
+                alt="Product"
+                class="hover-img"
+              />
+              <div class="product-actions">
+                <button class="action-btn wishlist">
+                  <i class="far fa-heart"></i>
+                </button>
+                <button class="action-btn compare">
+                  <i class="fas fa-exchange-alt"></i>
+                </button>
+                <button class="action-btn quickview">
+                  <i class="far fa-eye"></i>
+                </button>
+              </div>
+            </div>
+            <div class="product-info">
+              <span class="category">Car Audio Systems</span>
+              <h3>
+                <a href="#"
+                  >Aliquam consequat velit ac turpis sagittis tincidunt</a
+                >
+              </h3>
+              <div class="rating">
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <span>(0)</span>
+              </div>
+              <div class="price">
+                <span class="current">$33.00</span>
+              </div>
+            </div>
+          </div>
+          <!-- Product 8 -->
+          <div class="product-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="product-image">
+              <img
+                src="images/1-21-700x700.jpg"
+                alt="Product"
+                class="main-img"
+              />
+              <img
+                src="images/2-20-600x600.jpg"
+                alt="Product"
+                class="hover-img"
+              />
+              <div class="product-actions">
+                <button class="action-btn wishlist">
+                  <i class="far fa-heart"></i>
+                </button>
+                <button class="action-btn compare">
+                  <i class="fas fa-exchange-alt"></i>
+                </button>
+                <button class="action-btn quickview">
+                  <i class="far fa-eye"></i>
+                </button>
+              </div>
+            </div>
+            <div class="product-info">
+              <span class="category">Battery</span>
+              <h3>
+                <a href="#">Suspendisse quis urna et nisl venenatis accumsan</a>
+              </h3>
+              <div class="rating">
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <span>(0)</span>
+              </div>
+              <div class="price">
+                <span class="current">$122.00 – $150.00</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="text-center">
+          <a href="#" class="btn-all-products">All Products</a>
+        </div>
       </div>
-
-      <div class="products-grid">
-        <div class="product-card">
-          <button class="wishlist-btn">♡</button>
-          <img
-            src="./images/1-35-700x700.jpg"
-            alt="Product"
-            class="product-image"
-          />
-          <div class="product-category">CAR AUDIO SYSTEMS</div>
-          <h3 class="product-title">
-            Phasellus commodo elit rutrum leo dignissim sagittis
-          </h3>
-          <div class="product-rating">★★★★★ (0)</div>
-          <div class="product-price">$133.00</div>
-        </div>
-
-        <div class="product-card">
-          <button class="wishlist-btn">♡</button>
-          <img
-            src="/images/2-32-600x600.jpg"
-            alt="Product"
-            class="product-image"
-          />
-          <div class="product-category">AUTOMOTIVE RIMS</div>
-          <h3 class="product-title">
-            Aliquam sit amet dui nec leo dignissim ullamcorper orci
-          </h3>
-          <div class="product-rating">★★★★★ (0)</div>
-          <div class="product-price">
-            $18.00
-            <span style="text-decoration: line-through; color: #999"
-              >$20.00</span
-            >
-          </div>
-        </div>
-
-        <div class="product-card">
-          <button class="wishlist-btn">♡</button>
-          <div class="countdown">
-            <div class="countdown-item">
-              <span class="countdown-value">440</span>
-              <span class="countdown-label">Days</span>
-            </div>
-            <div class="countdown-item">
-              <span class="countdown-value">02</span>
-              <span class="countdown-label">Hours</span>
-            </div>
-            <div class="countdown-item">
-              <span class="countdown-value">07</span>
-              <span class="countdown-label">Mins</span>
-            </div>
-            <div class="countdown-item">
-              <span class="countdown-value">36</span>
-              <span class="countdown-label">Secs</span>
-            </div>
-          </div>
-          <img
-            src="/images/1-2-600x600.jpg"
-            alt="Product"
-            class="product-image"
-          />
-          <div class="product-category">CAR AUDIO SYSTEMS</div>
-          <h3 class="product-title">
-            Dorman Steel Wheel Compatible with Select Honda Models
-          </h3>
-          <div class="product-rating">★★★★★ (4)</div>
-          <div class="product-price">
-            $90.00
-            <span style="text-decoration: line-through; color: #999"
-              >$120.00</span
-            >
-          </div>
-        </div>
-
-        <div class="product-card">
-          <button class="wishlist-btn">♡</button>
-          <img
-            src="/images/1-20-700x700.jpg"
-            alt="Product"
-            class="product-image"
-          />
-          <div class="product-category">AUTOMOTIVE RIMS</div>
-          <h3 class="product-title">
-            Maecenas gravida neque ac justo volutpat sollicitudin
-          </h3>
-          <div class="product-rating">★★★★★ (0)</div>
-          <div class="product-price">$180.00 - $210.00</div>
-        </div>
-
-        <div class="product-card">
-          <button class="wishlist-btn">♡</button>
-          <img
-            src="/images/1-27-600x600.jpg"
-            alt="Product"
-            class="product-image"
-          />
-          <div class="product-category">CAR AUDIO SYSTEMS</div>
-          <h3 class="product-title">
-            Quisque in metus non nunc dapibus lobortis quis ligula
-          </h3>
-          <div class="product-rating">★★★★★ (0)</div>
-          <div class="product-price">$19.00</div>
-        </div>
-
-        <div class="product-card">
-          <button class="wishlist-btn">♡</button>
-          <img
-            src="/images/1-32-700x700.jpg"
-            alt="Product"
-            class="product-image"
-          />
-          <div class="product-category">AUTOMOTIVE RIMS</div>
-          <h3 class="product-title">
-            Suspendisse vitae orci iaculis lobortis purus molestie
-          </h3>
-          <div class="product-rating">★★★★★ (0)</div>
-          <div class="product-price">$33.00</div>
-        </div>
-
-        <div class="product-card">
-          <button class="wishlist-btn">♡</button>
-          <img
-            src="/images/1-31-600x600.jpg"
-            alt="Product"
-            class="product-image"
-          />
-          <div class="product-category">CAR AUDIO SYSTEMS</div>
-          <h3 class="product-title">
-            Aliquam consequat velit ac turpis sagittis tincidunt
-          </h3>
-          <div class="product-rating">★★★★★ (0)</div>
-          <div class="product-price">$33.00</div>
-        </div>
-
-        <div class="product-card">
-          <button class="wishlist-btn">♡</button>
-          <img
-            src="/images/1-21-600x600.jpg"
-            alt="Product"
-            class="product-image"
-          />
-          <div class="product-category">BATTERY</div>
-          <h3 class="product-title">
-            Suspendisse quis urna et nisl venenatis accumsan
-          </h3>
-          <div class="product-rating">★★★★★ (0)</div>
-          <div class="product-price">$122.00 - $150.00</div>
-        </div>
-
-        <div class="product-card">
-          <button class="wishlist-btn">♡</button>
-          <img
-            src="/images/2-24-600x600.jpg"
-            alt="Product"
-            class="product-image"
-          />
-          <div class="product-category">BRAKES</div>
-          <h3 class="product-title">
-            Dorman Steel Wheel Compatible with Select Honda Models
-          </h3>
-          <div class="product-rating">★★★★★ (0)</div>
-          <div class="product-price">$18.00</div>
-        </div>
-
-        <div class="product-card">
-          <button class="wishlist-btn">♡</button>
-          <img
-            src="/images/2-28-600x600.jpg"
-            alt="Product"
-            class="product-image"
-          />
-          <div class="product-category">CAR AUDIO SYSTEMS</div>
-          <h3 class="product-title">
-            Etiam tristique nisl odio posuere aliquam dui venenatis
-          </h3>
-          <div class="product-rating">★★★★★ (1)</div>
-          <div class="product-price">
-            $16.00
-            <span style="text-decoration: line-through; color: #999"
-              >$19.00</span
-            >
-          </div>
-        </div>
-      </div>
-
-      <button class="view-all-btn">All Products</button>
     </section>
+
+    <!-- ========== SERVICES ========== -->
+    <section class="services-section">
+      <div class="container">
+        <div class="services-grid">
+          <div class="service-item" data-aos="fade-up">
+            <div class="service-icon">
+              <img src="images/free-delivery.svg" alt="Free Delivery" />
+            </div>
+            <div class="service-content">
+              <h4>FREE US DELIVERY</h4>
+              <p>
+                For US customers (including Alaska and Hawaii) or orders over
+                $200
+              </p>
+            </div>
+          </div>
+          <div class="service-item" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-icon">
+              <img src="images/secure-payment.svg" alt="Secure Payment" />
+            </div>
+            <div class="service-content">
+              <h4>SECURE PAYMENT</h4>
+              <p>
+                We accept Visa, American Express, Paypal, Payoneer Mastercard
+                and Discover
+              </p>
+            </div>
+          </div>
+          <div class="service-item" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-icon">
+              <img src="images/warranty.svg" alt="Warranty" />
+            </div>
+            <div class="service-content">
+              <h4>1 YEAR WARRANTY</h4>
+              <p>
+                All of our products are made with care and covered for one year
+                against manufacturing defects
+              </p>
+            </div>
+          </div>
+          <div class="service-item" data-aos="fade-up" data-aos-delay="300">
+            <div class="service-icon">
+              <img src="images/support.svg" alt="Support" />
+            </div>
+            <div class="service-content">
+              <h4>SUPPORT 24/7</h4>
+              <p>
+                Contact us 24 hours a day, 7 days a week Call Us: 0123-456-789
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== LOCATIONS & COMPARE ========== -->
+    <section class="locations-section">
+      <div class="container">
+        <div class="locations-grid">
+          <!-- Locations List -->
+          <div class="locations-list" data-aos="fade-right">
+            <span class="section-label">Our Locations</span>
+            <h3>Car Washing and Care Points</h3>
+            <div class="location-items">
+              <div class="location-item active">
+                <i class="fas fa-map-marker-alt"></i>
+                <div>
+                  <h5>Miami Garage</h5>
+                  <p>15 West 21th Street, Miami FL, USA</p>
+                </div>
+              </div>
+              <div class="location-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <div>
+                  <h5>Chicago Garage</h5>
+                  <p>5400 N. Lakewood Ave, Chicago, IL 60640</p>
+                </div>
+              </div>
+              <div class="location-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <div>
+                  <h5>Seattle Garage</h5>
+                  <p>312 S Washington St Seattle WA 98104-2616</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Image Compare -->
+          <div class="image-compare" data-aos="fade-left">
+            <div class="compare-container" id="compareContainer">
+              <div class="compare-image before">
+                <img src="images/compare-before.jpg" alt="Before" />
+                <span class="label">Before</span>
+              </div>
+              <div class="compare-image after">
+                <img src="images/compare-before.jpg" alt="After" />
+                <span class="label">After</span>
+              </div>
+              <div class="compare-slider">
+                <div class="slider-handle">
+                  <i class="fas fa-arrows-alt-h"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== PRICING SECTION ========== -->
+    <section class="pricing-section">
+      <div class="container">
+        <div class="section-header center">
+          <h2>WASHING PRICE</h2>
+          <h3>CHOOSE YOUR PLAN</h3>
+        </div>
+        <div class="pricing-grid">
+          <!-- Plan 1 -->
+          <div class="pricing-card" data-aos="fade-up">
+            <h4 class="plan-name">Express washing</h4>
+            <div class="plan-price">
+              <span class="amount">$15.99</span>
+              <span class="tax">+ TAX</span>
+            </div>
+            <ul class="plan-features">
+              <li class="included">
+                <i class="fas fa-check"></i> Clean The Car Body
+              </li>
+              <li class="included">
+                <i class="fas fa-check"></i> Remove Tree Sap
+              </li>
+              <li class="included">
+                <i class="fas fa-check"></i> Clean & Vacuum
+              </li>
+              <li class="excluded">
+                <i class="fas fa-times"></i> Clean the Sunroof
+              </li>
+              <li class="excluded">
+                <i class="fas fa-times"></i> Eliminate Car Odors
+              </li>
+              <li class="excluded">
+                <i class="fas fa-times"></i> Remove Hard Water Spots
+              </li>
+              <li class="excluded">
+                <i class="fas fa-times"></i> Cleaning With Chemicals
+              </li>
+              <li class="excluded">
+                <i class="fas fa-times"></i> Clean Your Engine Bay
+              </li>
+              <li class="excluded">
+                <i class="fas fa-times"></i> Clean Leather Car Seats
+              </li>
+            </ul>
+            <a href="#" class="btn-plan">Lean more</a>
+          </div>
+          <!-- Plan 2 -->
+          <div class="pricing-card" data-aos="fade-up" data-aos-delay="100">
+            <h4 class="plan-name">Basic cleaning</h4>
+            <div class="plan-price">
+              <span class="amount">$19.99</span>
+              <span class="tax">+ TAX</span>
+            </div>
+            <ul class="plan-features">
+              <li class="included">
+                <i class="fas fa-check"></i> Clean The Car Body
+              </li>
+              <li class="included">
+                <i class="fas fa-check"></i> Remove Tree Sap
+              </li>
+              <li class="included">
+                <i class="fas fa-check"></i> Clean & Vacuum
+              </li>
+              <li class="included">
+                <i class="fas fa-check"></i> Clean the Sunroof
+              </li>
+              <li class="included">
+                <i class="fas fa-check"></i> Eliminate Car Odors
+              </li>
+              <li class="excluded">
+                <i class="fas fa-times"></i> Remove Hard Water Spots
+              </li>
+              <li class="excluded">
+                <i class="fas fa-times"></i> Cleaning With Chemicals
+              </li>
+              <li class="excluded">
+                <i class="fas fa-times"></i> Clean Your Engine Bay
+              </li>
+              <li class="excluded">
+                <i class="fas fa-times"></i> Clean Leather Car Seats
+              </li>
+            </ul>
+            <a href="#" class="btn-plan">Lean more</a>
+          </div>
+          <!-- Plan 3 -->
+          <div class="pricing-card" data-aos="fade-up" data-aos-delay="200">
+            <h4 class="plan-name">Premium services</h4>
+            <div class="plan-price">
+              <span class="amount">$29.99</span>
+              <span class="tax">+ TAX</span>
+            </div>
+            <ul class="plan-features">
+              <li class="included">
+                <i class="fas fa-check"></i> Clean The Car Body
+              </li>
+              <li class="included">
+                <i class="fas fa-check"></i> Remove Tree Sap
+              </li>
+              <li class="included">
+                <i class="fas fa-check"></i> Clean & Vacuum
+              </li>
+              <li class="included">
+                <i class="fas fa-check"></i> Clean the Sunroof
+              </li>
+              <li class="included">
+                <i class="fas fa-check"></i> Eliminate Car Odors
+              </li>
+              <li class="included">
+                <i class="fas fa-check"></i> Remove Hard Water Spots
+              </li>
+              <li class="included">
+                <i class="fas fa-check"></i> Cleaning With Chemicals
+              </li>
+              <li class="excluded">
+                <i class="fas fa-times"></i> Clean Your Engine Bay
+              </li>
+              <li class="excluded">
+                <i class="fas fa-times"></i> Clean Leather Car Seats
+              </li>
+            </ul>
+            <a href="#" class="btn-plan">Lean more</a>
+          </div>
+          <!-- Plan 4 - Featured -->
+          <div
+            class="pricing-card featured"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            <span class="recommended">Recommended</span>
+            <h4 class="plan-name">Full Services</h4>
+            <div class="plan-price">
+              <span class="amount">$59.99</span>
+              <span class="tax">+ TAX</span>
+            </div>
+            <ul class="plan-features">
+              <li class="included">
+                <i class="fas fa-check"></i> Clean The Car Body
+              </li>
+              <li class="included">
+                <i class="fas fa-check"></i> Remove Tree Sap
+              </li>
+              <li class="included">
+                <i class="fas fa-check"></i> Clean & Vacuum
+              </li>
+              <li class="included">
+                <i class="fas fa-check"></i> Clean the Sunroof
+              </li>
+              <li class="included">
+                <i class="fas fa-check"></i> Eliminate Car Odors
+              </li>
+              <li class="included">
+                <i class="fas fa-check"></i> Remove Hard Water Spots
+              </li>
+              <li class="included">
+                <i class="fas fa-check"></i> Cleaning With Chemicals
+              </li>
+              <li class="included">
+                <i class="fas fa-check"></i> Clean Your Engine Bay
+              </li>
+              <li class="included">
+                <i class="fas fa-check"></i> Clean Leather Car Seats
+              </li>
+            </ul>
+            <a href="#" class="btn-plan">Lean more</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== BEST SELLERS ========== -->
+    <section class="best-sellers">
+      <div class="container">
+        <div class="section-header center">
+          <h2>BEST SELLERS</h2>
+        </div>
+        <div class="swiper bestseller-slider">
+          <div class="swiper-wrapper">
+            <!-- Product 1 -->
+            <div class="swiper-slide">
+              <div class="product-card-sm">
+                <div class="product-image">
+                  <span class="badge sale">-25%</span>
+                  <img src="images/1-2-600x600.jpg" alt="Product" />
+                  <div class="product-actions">
+                    <button class="action-btn add-cart">
+                      <i class="fas fa-shopping-cart"></i>
+                    </button>
+                    <button class="action-btn compare">
+                      <i class="fas fa-exchange-alt"></i>
+                    </button>
+                    <button class="action-btn wishlist">
+                      <i class="far fa-heart"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="product-info">
+                  <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <span>(4)</span>
+                  </div>
+                  <h3>
+                    <a href="#"
+                      >Dorman Steel Wheel Compatible with Select Honda Models</a
+                    >
+                  </h3>
+                  <div class="price">
+                    <span class="current">$90.00</span>
+                    <span class="original">$120.00</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Product 2 -->
+            <div class="swiper-slide">
+              <div class="product-card-sm">
+                <div class="product-image">
+                  <img src="images/1-20-600x600.jpg" alt="Product" />
+                  <div class="product-actions">
+                    <button class="action-btn add-cart">
+                      <i class="fas fa-shopping-cart"></i>
+                    </button>
+                    <button class="action-btn compare">
+                      <i class="fas fa-exchange-alt"></i>
+                    </button>
+                    <button class="action-btn wishlist">
+                      <i class="far fa-heart"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="product-info">
+                  <div class="rating">
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <span>(0)</span>
+                  </div>
+                  <h3>
+                    <a href="#"
+                      >Maecenas gravida neque ac justo volutpat sollicitudin</a
+                    >
+                  </h3>
+                  <div class="price">
+                    <span class="current">$180.00 – $210.00</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Product 3 -->
+            <div class="swiper-slide">
+              <div class="product-card-sm">
+                <div class="product-image">
+                  <img src="images/1-32-600x600.jpg" alt="Product" />
+                  <div class="product-actions">
+                    <button class="action-btn add-cart">
+                      <i class="fas fa-shopping-cart"></i>
+                    </button>
+                    <button class="action-btn compare">
+                      <i class="fas fa-exchange-alt"></i>
+                    </button>
+                    <button class="action-btn wishlist">
+                      <i class="far fa-heart"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="product-info">
+                  <div class="rating">
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <span>(0)</span>
+                  </div>
+                  <h3>
+                    <a href="#"
+                      >Quisque in metus non nunc dapibus lobortis quis ligula</a
+                    >
+                  </h3>
+                  <div class="price">
+                    <span class="current">$19.00</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Product 4 -->
+            <div class="swiper-slide">
+              <div class="product-card-sm">
+                <div class="product-image">
+                  <span class="badge sale">-14%</span>
+                  <img src="images/1-31-600x600.jpg" alt="Product" />
+                  <div class="product-actions">
+                    <button class="action-btn add-cart">
+                      <i class="fas fa-shopping-cart"></i>
+                    </button>
+                    <button class="action-btn compare">
+                      <i class="fas fa-exchange-alt"></i>
+                    </button>
+                    <button class="action-btn wishlist">
+                      <i class="far fa-heart"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="product-info">
+                  <div class="rating">
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <span>(0)</span>
+                  </div>
+                  <h3>
+                    <a href="#"
+                      >Suspendisse vitae orci iaculis lobortis purus molestie</a
+                    >
+                  </h3>
+                  <div class="price">
+                    <span class="current">$25.00</span>
+                    <span class="original">$29.00</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Product 5 -->
+            <div class="swiper-slide">
+              <div class="product-card-sm">
+                <div class="product-image">
+                  <img src="images/1-35-700x700.jpg" alt="Product" />
+                  <div class="product-actions">
+                    <button class="action-btn add-cart">
+                      <i class="fas fa-shopping-cart"></i>
+                    </button>
+                    <button class="action-btn compare">
+                      <i class="fas fa-exchange-alt"></i>
+                    </button>
+                    <button class="action-btn wishlist">
+                      <i class="far fa-heart"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="product-info">
+                  <div class="rating">
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <span>(0)</span>
+                  </div>
+                  <h3>
+                    <a href="#"
+                      >Phasellus commodo elit rutrum leo dignissim sagittis</a
+                    >
+                  </h3>
+                  <div class="price">
+                    <span class="current">$133.00</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-pagination bestseller-pagination"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== TESTIMONIALS ========== -->
+    <section class="testimonials-section">
+      <div class="container">
+        <div class="section-header center">
+          <h2>WHAT OUR CUSTOMERS SAY</h2>
+        </div>
+        <div class="swiper testimonials-slider">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="testimonial-card">
+                <div class="testimonial-avatar">
+                  <img src="images/testimonial-1-1.jpg" alt="Customer" />
+                </div>
+                <div class="testimonial-content">
+                  <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                  </div>
+                  <p>
+                    "Excellent quality products and fast shipping. The wheels I
+                    ordered were exactly as described and fit perfectly on my
+                    car."
+                  </p>
+                  <h4>John Smith</h4>
+                  <span>Verified Buyer</span>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="testimonial-card">
+                <div class="testimonial-avatar">
+                  <img src="images/testimonial-3.jpg" alt="Customer" />
+                </div>
+                <div class="testimonial-content">
+                  <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                  </div>
+                  <p>
+                    "Great customer service! They helped me choose the right
+                    parts for my vehicle. Will definitely order again."
+                  </p>
+                  <h4>Sarah Johnson</h4>
+                  <span>Verified Buyer</span>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="testimonial-card">
+                <div class="testimonial-avatar">
+                  <img src="images/testimonial-4.jpg" alt="Customer" />
+                </div>
+                <div class="testimonial-content">
+                  <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                  </div>
+                  <p>
+                    "The brake system I purchased works flawlessly. Professional
+                    packaging and quick delivery. Highly recommended!"
+                  </p>
+                  <h4>Mike Williams</h4>
+                  <span>Verified Buyer</span>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="testimonial-card">
+                <div class="testimonial-avatar">
+                  <img src="images/testimonial-5.jpg" alt="Customer" />
+                </div>
+                <div class="testimonial-content">
+                  <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                  </div>
+                  <p>
+                    "Best auto parts store online. Competitive prices and
+                    authentic products. My go-to shop for all car needs."
+                  </p>
+                  <h4>Emily Davis</h4>
+                  <span>Verified Buyer</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-pagination testimonials-pagination"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== NEWSLETTER ========== -->
+    <section class="newsletter-section">
+      <div class="container">
+        <div class="newsletter-content" data-aos="fade-up">
+          <div class="newsletter-text">
+            <h2>Subscribe to our Newsletter</h2>
+            <p>Get the latest updates on new products and upcoming sales</p>
+          </div>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Your email address" />
+            <button type="submit">
+              Subscribe <i class="fas fa-paper-plane"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer">
+      <div class="footer-main">
+        <div class="container">
+          <div class="footer-grid">
+            <!-- Column 1 - About -->
+            <div class="footer-col">
+              <img src="images/dark.png" alt="Automize" class="footer-logo" />
+              <p>
+                We are a leading auto parts supplier with a commitment to
+                providing high-quality products and exceptional customer
+                service.
+              </p>
+              <div class="footer-contact">
+                <p>
+                  <i class="fas fa-map-marker-alt"></i> 15 West 21th Street,
+                  Miami FL, USA
+                </p>
+                <p><i class="fas fa-phone-alt"></i> +123-456-789</p>
+                <p><i class="fas fa-envelope"></i> contact@automize.com</p>
+              </div>
+            </div>
+            <!-- Column 2 - Quick Links -->
+            <div class="footer-col">
+              <h4>Quick Links</h4>
+              <ul>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms & Conditions</a></li>
+                <li><a href="#">FAQs</a></li>
+              </ul>
+            </div>
+            <!-- Column 3 - Categories -->
+            <div class="footer-col">
+              <h4>Categories</h4>
+              <ul>
+                <li><a href="#">Tires & Wheels</a></li>
+                <li><a href="#">Brakes</a></li>
+                <li><a href="#">Headlights</a></li>
+                <li><a href="#">Suspension</a></li>
+                <li><a href="#">Audio Systems</a></li>
+              </ul>
+            </div>
+            <!-- Column 4 - My Account -->
+            <div class="footer-col">
+              <h4>My Account</h4>
+              <ul>
+                <li><a href="#">My Account</a></li>
+                <li><a href="#">Order Tracking</a></li>
+                <li><a href="#">Wishlist</a></li>
+                <li><a href="#">Shopping Cart</a></li>
+                <li><a href="#">Compare</a></li>
+              </ul>
+            </div>
+            <!-- Column 5 - Download App -->
+            <div class="footer-col">
+              <h4>Download App</h4>
+              <p>Download our app and get extra 15% off on your first order!</p>
+              <div class="app-buttons">
+                <a href="#"
+                  ><img src="images/apple-store.png" alt="App Store"
+                /></a>
+                <a href="#"
+                  ><img src="images/google-play.png" alt="Google Play"
+                /></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="container">
+          <div class="footer-bottom-content">
+            <p>&copy; 2025 Automize. All Rights Reserved.</p>
+            <div class="footer-social">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-youtube"></i></a>
+              <a href="#"><i class="fab fa-pinterest"></i></a>
+            </div>
+            <div class="payment-methods">
+              <i class="fab fa-cc-visa"></i>
+              <i class="fab fa-cc-mastercard"></i>
+              <i class="fab fa-cc-amex"></i>
+              <i class="fab fa-cc-paypal"></i>
+              <i class="fab fa-cc-discover"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop">
+      <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="src/js/main.js"></script>
   </body>
 </html>
