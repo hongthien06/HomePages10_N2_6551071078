@@ -1,7 +1,6 @@
 /**
  * ========================================
  * AUTOMIZE 10 - Main JavaScript File
- * Clone of automize-10
  * ========================================
  */
 
@@ -17,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initBackToTop();
   initAOS();
   initFormHandlers();
-  initCategoriesDropdownHover();
+  // ĐÃ XÓA: initCategoriesDropdownHover() -> Để CSS tự xử lý hover
 });
 
 /**
@@ -93,7 +92,7 @@ function initMobileMenu() {
 
   if (!toggle || !menu) return;
 
-  // Create overlay
+  // Create overlay if not exists
   let overlay = document.querySelector(".mobile-overlay");
   if (!overlay) {
     overlay = document.createElement("div");
@@ -122,7 +121,11 @@ function initMobileMenu() {
  * ========== SWIPER SLIDERS ==========
  */
 function initSwiperSliders() {
-  const Swiper = window.Swiper; // Declare Swiper variable
+  // Check if Swiper is loaded
+  if (typeof Swiper === "undefined") {
+    console.warn("Swiper is not loaded");
+    return;
+  }
 
   // Hero Slider
   if (document.querySelector(".hero-slider")) {
@@ -146,7 +149,7 @@ function initSwiperSliders() {
 
   // Collections Slider
   if (document.querySelector(".collections-slider")) {
-    const collectionsSlider = new Swiper(".collections-slider", {
+    new Swiper(".collections-slider", {
       loop: false,
       slidesPerView: 1,
       spaceBetween: 20,
@@ -373,8 +376,6 @@ function initBackToTop() {
  * ========== AOS ANIMATIONS ==========
  */
 function initAOS() {
-  const AOS = window.AOS; // Declare AOS variable
-
   if (typeof AOS !== "undefined") {
     AOS.init({
       duration: 800,
@@ -477,29 +478,6 @@ function initFormHandlers() {
       this.classList.add("active");
     });
   });
-}
-
-/**
- * ========== CATEGORIES DROPDOWN HOVER ==========
- */
-function initCategoriesDropdownHover() {
-  const categoriesDropdown = document.querySelector(".categories-dropdown");
-  const categoriesMenu = document.querySelector(".categories-menu");
-
-  if (categoriesDropdown && categoriesMenu) {
-    // Keep dropdown open when hovering menu
-    categoriesMenu.addEventListener("mouseenter", () => {
-      categoriesMenu.style.opacity = "1";
-      categoriesMenu.style.visibility = "visible";
-      categoriesMenu.style.transform = "translateY(0)";
-    });
-
-    categoriesDropdown.addEventListener("mouseleave", () => {
-      categoriesMenu.style.opacity = "0";
-      categoriesMenu.style.visibility = "hidden";
-      categoriesMenu.style.transform = "translateY(-100%)";
-    });
-  }
 }
 
 /**
